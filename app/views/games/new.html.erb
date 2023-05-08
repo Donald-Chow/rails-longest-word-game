@@ -1,0 +1,18 @@
+<h1>WELCOME TO THE LONGEST WORD GAME</h1>
+<div>
+  <ul class ="list-group list-group-horizontal">
+    <% @letters.each do |letter| %>
+      <li class="card-letter list-group-item">
+      <%= letter %>
+      </li>
+    <% end %>
+</ul>
+</div>
+<div>
+  <form action="/score" method="post" data-turbo="false">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <input type="text" name="word" placeholder="What is your longest word">
+    <input type="submit">
+  </form>
+</div>
